@@ -184,7 +184,7 @@ class rcmail_output_html extends rcmail_output
         $this->skin_paths[] = $skin_path;
 
         // read meta file and check for dependecies
-        $meta = @json_decode(@file_get_contents($skin_path.'/meta.json'), true);
+        $meta = json_decode(file_get_contents($skin_path.'/meta.json'), true);
         if ($meta['extends'] && is_dir('skins/' . $meta['extends'])) {
             $this->load_skin('skins/' . $meta['extends']);
         }
